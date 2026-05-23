@@ -1,2 +1,2 @@
 #!/bin/bash
-mask=$((0xffffffff << (32 - $1))); for i in 24 16 8 0; do out+="$(( (mask >> i) & 255 ))."; done; echo "${out%.*}"
+mask=$(( 0xFFFFFFFF << (32 - $1) )); printf "%d.%d.%d.%d\n" $(( (mask >> 24) & 255 )) $(( (mask >> 16) & 255 )) $(( (mask >> 8) & 255 )) $(( mask & 255 ))
